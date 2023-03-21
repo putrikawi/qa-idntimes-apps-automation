@@ -7,7 +7,7 @@ from selenium.webdriver.common.actions.action_builder import ActionBuilder
 from selenium.webdriver.common.actions.pointer_input import PointerInput
 from selenium.webdriver.common.action_chains import ActionChains
 from appium import TouchAction
-TouchAction touch = new TouchAction(self.driver);
+#TouchAction touch = new TouchAction(self.driver);
 
 
 class login:
