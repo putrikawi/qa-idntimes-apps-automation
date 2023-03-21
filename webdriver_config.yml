@@ -1,0 +1,19 @@
+emulators:
+  pixel_4a:
+    deviceName: "Pixel 4a"
+    platformName: "Android"
+    platformVersion: "11.0"
+    appiumVersion: "1.22.0"
+    deviceOrientation: "portrait"
+    automationName: "UiAutomator2"
+
+environments:
+  staging:
+    platformName: "Android"
+    platformVersion: "11.0"
+    appPackage: "com.example.app"
+    appActivity: "com.example.app.MainActivity"
+    emulator: "pixel_4a"
+    username: "{AppConfig.LOGIN_USERNAME}"
+    password: "{AppConfig.LOGIN_PASSWORD}"
+    url: "{AppConfig.URL}"
