@@ -1,4 +1,6 @@
-import behave
+# import behave
 
-if __name__ == '__main__':
-    behave.main(['login.feature'])
+#if __name__ == '__main__':
+#    behave.main(['login.feature'])
+
+
