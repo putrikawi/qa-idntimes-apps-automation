@@ -2,10 +2,7 @@ from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
 from webdriver import PLATFORM_NAME, PLATFORM_VERSION, DEVICE_NAME, AUTOMATION_NAME, APP_PACKAGE, APP_ACTIVITY
-from selenium.webdriver.common.actions import interaction
-from selenium.webdriver.common.actions.action_builder import ActionBuilder
-from selenium.webdriver.common.actions.pointer_input import PointerInput
-from selenium.webdriver.common.action_chains import ActionChains
+
 
 
 class login:
