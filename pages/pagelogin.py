@@ -49,7 +49,7 @@ class login:
             el6.click()
             el7 = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.Button[@text='Lanjut']")
             el7.click()
-            self.driver.implicitly_wait(15)
+            self.driver.implicitly_wait(10)
             el8 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
             el8.click()
             self.driver.implicitly_wait(10)
