@@ -1,5 +1,5 @@
 from behave import given, when, then
-from pages.pagelogin import login
+from pages.login_page import login
 
 
 login_instance = login()
