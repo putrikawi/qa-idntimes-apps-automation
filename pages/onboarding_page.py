@@ -42,7 +42,7 @@ class OnboardingPage:
             skip_button_element.click()
             self.driver.implicitly_wait(10)
             nantisaja_button_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes.overview:id/tvLater")
-            nantisaja_button.click()
+            nantisaja_button_element.click()
 
 
             # com.idntimes.idntimes.overview:id/btnSkip if skip
