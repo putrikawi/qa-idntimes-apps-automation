@@ -1,101 +1,108 @@
-from appium.webdriver.common.appiumby import AppiumBy #import module
+from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
 from onboarding_page import OnboardingPage
 from webdriver import DesiredCapabilities
+from appium import webdriver
 
-class Login:
+class LoginPage:
     def __init__(self):
         self.desired_caps = DesiredCapabilities().to_dict()
         self.driver = None
 
-class login:
-    #Class CamelCase
-    # Create an instance of onboarding1
-    ob =OnboardingPage ()
+    def start_driver(self):  # start driver in local
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.desired_caps)
 
-    # Start the driver for onboarding1
-    ob.start_driver()
 
-    # Call the cardonboarding method of onboarding1
-    ob.run_onboarding()
-
-    def login_with_google(self): #method login google
+    def run_login_with_google (self): #method login google
         try:
 
+            onboarding = OnboardingPage()
+            onboarding.start_driver()
+            onboarding.run_onboarding()
+
             self.driver.implicitly_wait(10)
-            lg1 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
-            lg1.click()
+            tooltip_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
+            tooltip_element.click()
 
-
-            lg2 = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Profile")
-            lg2.click()
-            self.driver.implicitly_wait(10)
-
-            lg3 = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="google logo Masuk dengan Google")
-            lg3.click()
-            self.driver.implicitly_wait(20)# This ensures that the driver waits for up to 10 seconds (as specified) for the element to appear on the page before performing the click action
-
-            lg4 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
-            lg4.click()
+            profile_element = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Profile")
+            profile_element.click()
             self.driver.implicitly_wait(10)
 
-            lg5 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/btnFilledRight")
-            lg5.click()
+            google_login_element = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="google logo Masuk dengan Google")
+            google_login_element.click()
+            self.driver.implicitly_wait(20)
 
-            lg6 = self.driver.find_element(by=AppiumBy.ID, value="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
-            lg6.click()
+            close_tooltip_element = self.driver.find_element(by=AppiumBy.ID,value="com.idntimes.idntimes:id/cl_tooltip")
+            close_tooltip_element.click()
+            self.driver.implicitly_wait(10)
 
-            lg7 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
-            lg7.click()
+            next_button_element = self.driver.find_element(by=AppiumBy.ID,value="com.idntimes.idntimes:id/btnFilledRight")
+            next_button_element.click()
 
-            lg8 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
-            lg8.click()
+            allow_permission_element = self.driver.find_element(by=AppiumBy.ID,value="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+            allow_permission_element.click()
+
+            settings_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
+            settings_element.click()
+
+            logout_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
+            logout_element.click()
             self.driver.implicitly_wait(10)
 
             print("Passed, logging in with Google") # Log sukses kalo seluruh diatas berhasil
         except NoSuchElementException as e:
             print("Error, logging in with Google:", e)  # Log gagal kalo seluruh diatas berhasil
 
-    def login_with_facebook(self):
+    def run_ogin_with_facebook(self):
         try:
-            el5 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/action_profile")
-            el5.click()
+
+            fb_profile_element = self.driver.find_element(by=AppiumBy.ID,value="com.idntimes.idntimes:id/action_profile")
+            fb_profile_element.click()
             self.driver.implicitly_wait(10)
-            el6 = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="facebook logo Masuk dengan Facebook")
-            el6.click()
-            el7 = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.Button[@text='Lanjut']")
-            el7.click()
+
+            fb_facebook_login_element = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID,value="facebook logo Masuk dengan Facebook")
+            fb_facebook_login_element.click()
+
+            fb_continue_element = self.driver.find_element(by=AppiumBy.XPATH,value="//android.widget.Button[@text='Lanjut']")
+            fb_continue_element.click()
             self.driver.implicitly_wait(10)
-            el8 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
-            el8.click()
+
+            fb_settings_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
+            fb_settings_element.click()
             self.driver.implicitly_wait(10)
-            el9 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
-            el9.click()
+
+            fb_logout_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
+            fb_logout_element.click()
             self.driver.implicitly_wait(10)
 
             print("Passed, logging in with Facebook")
         except NoSuchElementException as e:
             print("Error, logging in with Facebook:", e)
 
-    def login_with_email(self):
+    def run_login_with_email(self):
             try:
 
 
-                el10 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/action_profile")
-                el10.click()
+                email_profile_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/action_profile")
+                email_profile_element.click()
                 self.driver.implicitly_wait(10)
-                el11 = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.EditText[@password='false']")
-                el11.send_keys("qaidnapp4@gmail.com")
-                el12 = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.EditText[@password='true']")
-                el12.send_keys("Idntimes1234!")
-                el13 = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.Button[@text='Masuk']")
-                el13.click()
+
+                email_user_element = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.EditText[@password='false']")
+                email_user_element.send_keys("qaidnapp4@gmail.com")
+
+                email_password_element= self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.EditText[@password='true']")
+                email_password_element.send_keys("Idntimes1234!")
+
+                email_button_masuk_element = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.Button[@text='Masuk']")
+                email_button_masuk_element.click()
                 self.driver.implicitly_wait(10)
-                el14 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
-                el14.click()
+
+                email_settings_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
+                email_settings_element.click()
                 self.driver.implicitly_wait(10)
-                el15 = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
-                el15.click()
+
+                email_logout_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
+                email_logout_element.click()
                 self.driver.implicitly_wait(10)
 
                 print("Passed, logging in with Email")
@@ -106,19 +113,17 @@ class login:
                 self.driver.quit()
 
 
-# create an instance of Profile
-# initiate driver
-l = login()
+l = LoginPage()
 
-# start the driver
+# Start the driver
 l.start_driver()
-# call the login_with_google method
-l.login_with_google()
+# Call the login_with_google method
+l.run_login_with_google()
 
-# call the login_with_facebook method
-#l.login_with_facebook()
+# Call the login_with_facebook method
+l.run_login_with_facebook()
 
-# call the login_with_email method
-#l.login_with_email()
+# Call the login_with_email method
+l.run_login_with_email()
 
 #test

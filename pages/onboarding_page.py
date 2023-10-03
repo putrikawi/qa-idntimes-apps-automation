@@ -7,6 +7,9 @@ from webdriver import DesiredCapabilities
 #classname CamelCase
 #methodname run_fiturename
 #variablename buttonname
+#commit & push git Fitur : deskripsi
+#commit , pull ,check, push
+
 
 class OnboardingPage:
     def __init__(self):
@@ -35,10 +38,10 @@ class OnboardingPage:
 
         try:
             self.driver.implicitly_wait(10)
-            skip_button = self.driver.find_element(AppiumBy.ID, value="com.idntimes.idntimes.overview:id/btnSkip")
-            skip_button.click()
+            skip_button_element = self.driver.find_element(AppiumBy.ID, value="com.idntimes.idntimes.overview:id/btnSkip")
+            skip_button_element.click()
             self.driver.implicitly_wait(10)
-            nantisaja_button = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes.overview:id/tvLater")
+            nantisaja_button_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes.overview:id/tvLater")
             nantisaja_button.click()
 
 
