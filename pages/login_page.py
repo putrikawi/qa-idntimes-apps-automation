@@ -1,6 +1,5 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
-from onboarding_page import OnboardingPage
 from webdriver import DesiredCapabilities
 from appium import webdriver
 
@@ -14,18 +13,15 @@ class LoginPage:
 
     def run_login_with_google(self):  # Method to login with Google
         try:
-            # Create an instance of OnboardingPage
-            ob = OnboardingPage()
-
-            # Start the driver
-            if self.driver is None:
-                self.start_driver()
-
-            # Call the onboarding method
-            ob.run_onboarding()
-
+            
             self.driver.implicitly_wait(10)
-    
+            skip_button_element = self.driver.find_element(AppiumBy.ID, value="com.idntimes.idntimes.overview:id/btnSkip")
+            skip_button_element.click()
+            self.driver.implicitly_wait(10)
+            nantisaja_button_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes.overview:id/tvLater")
+            nantisaja_button_element.click()
+            self.driver.implicitly_wait(10)
+
             tooltip_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
             tooltip_element.click()
 
