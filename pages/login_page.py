@@ -27,7 +27,7 @@ class LoginPage:
             tooltip_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
             tooltip_element.click()
 
-            self.driver.implicitly_wait(10)
+            self.driver.implicitly_wait(30)
 
 
             left_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/btnOutlinedLeft")
@@ -54,14 +54,15 @@ class LoginPage:
             print("Passed, logging in with Google")  # Log success if all the steps above succeed
         except NoSuchElementException as e:
             print("Error, logging in with Google:", e)  # Log failure if any exception occurs
-        finally:
-            self.driver.quit()
+
 
     def run_login_with_facebook(self):
         try:
+
+            self.driver.implicitly_wait(30)
             fb_profile_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/action_profile")
             fb_profile_element.click()
-            self.driver.implicitly_wait(10)
+
 
             fb_facebook_login_element = self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="facebook logo Masuk dengan Facebook")
             fb_facebook_login_element.click()
