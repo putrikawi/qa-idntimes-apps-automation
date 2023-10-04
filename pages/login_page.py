@@ -25,7 +25,7 @@ class LoginPage:
             ob.run_onboarding()
 
             self.driver.implicitly_wait(10)
-
+    
             tooltip_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
             tooltip_element.click()
 

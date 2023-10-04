@@ -52,6 +52,10 @@ class OnboardingPage:
         except NoSuchElementException as e:
             print("Error clicking onboarding:", e)
 
+            self.driver.close_app()
+            self.driver.quit()
+
+
 
 
 # initiate driver
