@@ -27,7 +27,7 @@ class LoginPage:
             tooltip_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/cl_tooltip")
             tooltip_element.click()
 
-            self.driver.implicitly_wait(30)
+            self.driver.implicitly_wait(60)
 
 
             left_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/btnOutlinedLeft")
@@ -59,7 +59,7 @@ class LoginPage:
     def run_login_with_facebook(self):
         try:
 
-            self.driver.implicitly_wait(30)
+            self.driver.implicitly_wait(60)
             fb_profile_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/action_profile")
             fb_profile_element.click()
 
@@ -69,15 +69,15 @@ class LoginPage:
 
             fb_continue_element = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.Button[@text='Lanjut']")
             fb_continue_element.click()
-            self.driver.implicitly_wait(10)
+
 
             fb_settings_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
             fb_settings_element.click()
-            self.driver.implicitly_wait(10)
+
 
             fb_logout_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
             fb_logout_element.click()
-            self.driver.implicitly_wait(10)
+
 
             print("Passed, logging in with Facebook")
         except NoSuchElementException as e:
@@ -86,9 +86,11 @@ class LoginPage:
 
     def run_login_with_email(self):
         try:
+            self.driver.implicitly_wait(60)
+
             email_profile_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/action_profile")
             email_profile_element.click()
-            self.driver.implicitly_wait(10)
+
 
             email_user_element = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.EditText[@password='false']")
             email_user_element.send_keys("qaidnapp4@gmail.com")
@@ -98,15 +100,15 @@ class LoginPage:
 
             email_button_masuk_element = self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.Button[@text='Masuk']")
             email_button_masuk_element.click()
-            self.driver.implicitly_wait(10)
+
 
             email_settings_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/ivSettings")
             email_settings_element.click()
-            self.driver.implicitly_wait(10)
+
 
             email_logout_element = self.driver.find_element(by=AppiumBy.ID, value="com.idntimes.idntimes:id/rlLogout")
             email_logout_element.click()
-            self.driver.implicitly_wait(10)
+
 
             print("Passed, logging in with Email")
         except NoSuchElementException as e:
