@@ -8,6 +8,7 @@ class DesiredCapabilities:
         self.automation_name = "UiAutomator2"
         self.app_package = "com.idntimes.idntimes"
         self.app_activity = "com.idntimes.idntimes.ui.splash.SplashActivity"
+        self.new_command_timeout = 300
 
     def to_dict(self):
         return {
@@ -16,5 +17,6 @@ class DesiredCapabilities:
             "deviceName": self.device_name,
             "automationName": self.automation_name,
             "appPackage": self.app_package,
-            "appActivity": self.app_activity
+            "appActivity": self.app_activity,
+            "newCommandTimeout": self.new_command_timeout
         }
