@@ -1,6 +1,6 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
-from webdriver import DesiredCapabilities
+from py.webdriver import DesiredCapabilities
 from appium import webdriver
 
 

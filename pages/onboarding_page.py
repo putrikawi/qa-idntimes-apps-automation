@@ -1,7 +1,7 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
 from appium import webdriver
-from webdriver import DesiredCapabilities
+from py.webdriver import DesiredCapabilities
 
 #modulename fiturename_page
 #classname CamelCase
